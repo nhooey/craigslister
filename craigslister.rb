@@ -74,7 +74,7 @@ end
 def get_html(url)
 	begin
 		print "Downloading listings...\n"
-		open(URI.escape(url)) { |f| return f }
+		return open(URI.escape(url)).read
 	rescue OpenURI::HTTPError => error
 		$stderr.print "Opening URL: `#{url}' failed: #{error}\n"
 		raise
