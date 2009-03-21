@@ -1,0 +1,12 @@
+<rss version="2.0">
+    <channel>
+        <title>Craigslist Couch Watch</title>
+		<link></link>
+        <description>Craigslist Couch Watch</description>
+        <ttl>180</ttl>
+        <pubdate></pubdate>
+        <generator>Neil Hooey</generator>
+        <copyright>Neil Hooey</copyright>
+        <language>en-us</language>
+    </channel>
+</rss>
