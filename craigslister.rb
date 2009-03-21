@@ -32,8 +32,8 @@ You must specify either --query <query> or --queryfile <file>.
 EOF
 
 regex_price = /\$(([\d]+,)?[\d]+(\.[\d]+)?)/
-months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept',
-	'Oct', 'Nov', 'Dec']
+regex_month = /Jan|Feb|Mar|Apr|May|June|July|Aug|Sept|Oct|Nov|Dec/
+regex_listing = /<p>\s*(#{regex_month})\s+([0-9]+)\s*-\s*<a href="([^"]+)">\s*([^<]+) - \$([0-9]+) -\s*<\/a>(<font[^>]+>)?\s*\(([^\)]+)\)\s*/
 
 def get_cmd_options()
 	begin
@@ -107,4 +107,8 @@ else
 	html_doc = get_html(page_url)
 end
 
-puts html_doc
+match_array = html_doc.scan(regex_listing)
+match_array.each do |match|
+	p match
+	print "\n\n"
+end
