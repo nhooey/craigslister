@@ -16,10 +16,10 @@
 # Copyright (c) 2009 Neil Hooey. Licensed under the same terms as Ruby.
 
 require 'getoptlong'
-require 'open-uri'
 require 'rexml/document'
-require 'timeout'
+require 'open-uri'
 require 'net/http'
+require 'timeout'
 include REXML
 
 usage = <<EOF
@@ -29,6 +29,21 @@ usage: craigslister [--nopics] [--minprice <min>] [--maxprice <max>]
 
 You must specify either --query <query> or --queryfile <file>.
 
+EOF
+
+xml_base = <<EOF
+<rss version="2.0">
+    <channel>
+        <title>Craigslist Couch Watch</title>
+		<link></link>
+        <description>Craigslist Couch Watch</description>
+        <ttl>180</ttl>
+        <pubdate></pubdate>
+        <generator>Neil Hooey</generator>
+        <copyright>Neil Hooey</copyright>
+        <language>en-us</language>
+    </channel>
+</rss>
 EOF
 
 regex_price = /\$(([\d]+,)?[\d]+(\.[\d]+)?)/
